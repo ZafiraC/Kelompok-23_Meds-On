@@ -155,3 +155,64 @@ def Vitamin():
     else:
       print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
       Vitamin()
+
+      Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah Vitamin": jml_vit, "Harga": total2}
+      dataVitamin.append(Vitamin.copy())
+
+      keys = dataVitamin[0].keys()
+      with open('data.csv', 'a', newline='')  as output_file:
+          dict_writer = csv.DictWriter(output_file, keys)
+          dict_writer.writeheader()
+          dict_writer.writerows(dataVitamin)
+
+    total3 = 0
+    jenis3 = ""
+
+    def Obat():
+        global total3
+        global jml_obat
+        global jenis3
+        print("\n---------- Daftar Menu Obat Generik -----------")
+        print("1. Obat Penurun Panas")
+        print("2. Obat Batuk")
+        print("3. Obat Flu")
+        print("4. Obat Pusing")
+        print("5. Obat Maag")
+        nomor = int(input("Mau yang mana ? : "))
+
+        if nomor == 1:
+            print("[1] Paracetamol Tablet 500mg Isi 10       : Rp 3000")
+            print("[2] Sanmol Paracetamol Tablet 500mg Isi 4 : Rp 1500")
+            print("[3] Ibuprofen Tablet 400 mg Isi 10        : Rp 4000")
+            print("[4] Termorex Paracetamol Sirup Anak       : Rp 16000")
+
+            obat = int(input("Pilih yang mana? : "))
+            jml_obat = int(input("Jumlah : "))
+
+            if obat == 1:
+                total3 = jml_obat * 3000
+                print(jml_obat, "Paracetamol Tablet 500mg Isi 10 : Rp", total3)
+                jenis3 = ("Paracetamol Tablet 500mg Isi 10")
+            elif obat == 2:
+                total3 = jml_obat * 1500
+                print(jml_obat, "Sanmol Paracetamol Tablet 500mg Isi 4 : Rp", total3)
+                jenis3 = ("Sanmol Paracetamol Tablet 500mg Isi 4")
+            elif obat == 3:
+                total3 = jml_obat * 4000
+                print(jml_obat, "Ibuprofen Tablet 400 mg Isi 10 : Rp", total3)
+                jenis3 = ("Ibuprofen Tablet 400 mg Isi 10")
+            elif obat == 4:
+                total3 = jml_obat * 16000
+                print(jml_obat, "Termorex Paracetamol Sirup Anak : Rp", total3)
+                jenis3 = ("Termorex Paracetamol Sirup Anak")
+            else:
+                print("Maaf perintah yang Anda masukkan salah!")
+
+        elif nomor == 2:
+            print("[1] Siladex ME 60 ml (batuk berdahak)                  : Rp 16000")
+            print("[2] Vicks Formula 44 (batuk kering dan berdahak)       : Rp 22000")
+            print("[3] Benadryl Original (batuk kering dengan rasa gatal) : Rp 25000")
+            print("[4] Woods Antitussive 100 ml (batuk tidak berdahak)    : Rp 33000")
+
+            obat = int(input("Pilih yang mana? : "))
+            jml_obat = int(input("Jumlah : "))
