@@ -165,54 +165,167 @@ def Vitamin():
           dict_writer.writeheader()
           dict_writer.writerows(dataVitamin)
 
-    total3 = 0
-    jenis3 = ""
+total3 = 0
+jenis3 = ""
 
-    def Obat():
-        global total3
-        global jml_obat
-        global jenis3
-        print("\n---------- Daftar Menu Obat Generik -----------")
-        print("1. Obat Penurun Panas")
-        print("2. Obat Batuk")
-        print("3. Obat Flu")
-        print("4. Obat Pusing")
-        print("5. Obat Maag")
-        nomor = int(input("Mau yang mana ? : "))
+def Obat():
+    global total3
+    global jml_obat
+    global jenis3
+    print("\n---------- Daftar Menu Obat Generik -----------")
+    print("1. Obat Penurun Panas")
+    print("2. Obat Batuk")
+    print("3. Obat Flu")
+    print("4. Obat Pusing")
+    print("5. Obat Maag")
+    nomor = int(input("Mau yang mana ? : "))
 
-        if nomor == 1:
-            print("[1] Paracetamol Tablet 500mg Isi 10       : Rp 3000")
-            print("[2] Sanmol Paracetamol Tablet 500mg Isi 4 : Rp 1500")
-            print("[3] Ibuprofen Tablet 400 mg Isi 10        : Rp 4000")
-            print("[4] Termorex Paracetamol Sirup Anak       : Rp 16000")
+    if nomor == 1:
+        print("[1] Paracetamol Tablet 500mg Isi 10       : Rp 3000")
+        print("[2] Sanmol Paracetamol Tablet 500mg Isi 4 : Rp 1500")
+        print("[3] Ibuprofen Tablet 400 mg Isi 10        : Rp 4000")
+        print("[4] Termorex Paracetamol Sirup Anak       : Rp 16000")
 
-            obat = int(input("Pilih yang mana? : "))
-            jml_obat = int(input("Jumlah : "))
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
 
-            if obat == 1:
-                total3 = jml_obat * 3000
-                print(jml_obat, "Paracetamol Tablet 500mg Isi 10 : Rp", total3)
-                jenis3 = ("Paracetamol Tablet 500mg Isi 10")
-            elif obat == 2:
-                total3 = jml_obat * 1500
-                print(jml_obat, "Sanmol Paracetamol Tablet 500mg Isi 4 : Rp", total3)
-                jenis3 = ("Sanmol Paracetamol Tablet 500mg Isi 4")
-            elif obat == 3:
-                total3 = jml_obat * 4000
-                print(jml_obat, "Ibuprofen Tablet 400 mg Isi 10 : Rp", total3)
-                jenis3 = ("Ibuprofen Tablet 400 mg Isi 10")
-            elif obat == 4:
-                total3 = jml_obat * 16000
-                print(jml_obat, "Termorex Paracetamol Sirup Anak : Rp", total3)
-                jenis3 = ("Termorex Paracetamol Sirup Anak")
-            else:
-                print("Maaf perintah yang Anda masukkan salah!")
+        if obat == 1:
+            total3 = jml_obat * 3000
+            print(jml_obat, "Paracetamol Tablet 500mg Isi 10 : Rp", total3)
+            jenis3 = ("Paracetamol Tablet 500mg Isi 10")
+        elif obat == 2:
+            total3 = jml_obat * 1500
+            print(jml_obat, "Sanmol Paracetamol Tablet 500mg Isi 4 : Rp", total3)
+            jenis3 = ("Sanmol Paracetamol Tablet 500mg Isi 4")
+        elif obat == 3:
+            total3 = jml_obat * 4000
+            print(jml_obat, "Ibuprofen Tablet 400 mg Isi 10 : Rp", total3)
+            jenis3 = ("Ibuprofen Tablet 400 mg Isi 10")
+        elif obat == 4:
+            total3 = jml_obat * 16000
+            print(jml_obat, "Termorex Paracetamol Sirup Anak : Rp", total3)
+            jenis3 = ("Termorex Paracetamol Sirup Anak")
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
 
-        elif nomor == 2:
-            print("[1] Siladex ME 60 ml (batuk berdahak)                  : Rp 16000")
-            print("[2] Vicks Formula 44 (batuk kering dan berdahak)       : Rp 22000")
-            print("[3] Benadryl Original (batuk kering dengan rasa gatal) : Rp 25000")
-            print("[4] Woods Antitussive 100 ml (batuk tidak berdahak)    : Rp 33000")
+    elif nomor == 2:
+        print("[1] Siladex ME 60 ml (batuk berdahak)                  : Rp 16000")
+        print("[2] Vicks Formula 44 (batuk kering dan berdahak)       : Rp 22000")
+        print("[3] Benadryl Original (batuk kering dengan rasa gatal) : Rp 25000")
+        print("[4] Woods Antitussive 100 ml (batuk tidak berdahak)    : Rp 33000")
 
-            obat = int(input("Pilih yang mana? : "))
-            jml_obat = int(input("Jumlah : "))
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total3 = jml_obat * 16000
+            print(jml_obat, "Siladex ME 60 ml : Rp", total3)
+            jenis3 = ("Siladex ME 60 ml")
+        elif obat == 2:
+            total3 = jml_obat * 22000
+            print(jml_obat, "Vicks Formula 44 : Rp", total3)
+            jenis3 = ("Vicks Formula 44")
+        elif obat == 3:
+            total3 = jml_obat * 25000
+            print(jml_obat, "Benadryl Original : Rp", total3)
+            jenis3 = ("Benadryl Original")
+        elif obat == 4:
+            total3 = jml_obat * 33000
+            print(jml_obat, "Woods Antitussive 100 ml : Rp", total3)
+            jenis3 = ("Woods Antitussive 100 ml")
+
+    elif nomor == 3:
+        print("[1] Inza          : Rp 2000")
+        print("[2] Mixagrip Flu  : Rp 3000")
+        print("[3] Neozep Forte  : Rp 3000")
+        print("[4] Decolgen Flu  : Rp 3000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total3 = jml_obat * 2000
+            print(jml_obat, " Inza : Rp", total3)
+            jenis3 = ("Inza")
+        elif obat == 2:
+            total3 = jml_obat * 3000
+            print(jml_obat, " Mixagrip Flu : Rp", total3)
+            jenis3 = ("Mixagrip Flu")
+        elif obat == 3:
+            total3 = jml_obat * 3000
+            print(jml_obat, " Neozep Forte : Rp", total3)
+            jenis3 = ("Neozep Forte")
+        elif obat == 4:
+            total3 = jml_obat * 3000
+            print(jml_obat, " Decolgen Flu : Rp", total3)
+            jenis3 = ("Decolgen Flu")
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+
+    elif nomor == 4:
+        print("[1] Bodrex Migra    : Rp 2500")
+        print("[2] Konimex Paramex : Rp 3000")
+        print("[3] Panadol Regular : Rp 9000")
+        print("[4] Panadol Extra   : Rp 9000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total3 = jml_obat * 2500
+            print(jml_obat, " Bodrex Migra  : Rp", total3)
+            jenis3 = ("Bodrex Migra ")
+        elif obat == 2:
+            total3 = jml_obat * 3000
+            print(jml_obat, " Konimex Paramex : Rp", total3)
+            jenis3 = ("Konimex Paramex")
+        elif obat == 3:
+            total3 = jml_obat * 9000
+            print(jml_obat, " Panadol Regular : Rp", total3)
+            jenis3 = ("Panadol Regular")
+        elif obat == 4:
+            total3 = jml_obat * 9000
+            print(jml_obat, " Panadol Extra : Rp", total3)
+            jenis3 = ("Panadol Extra")
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+
+    elif nomor == 5:
+        print("[1] Mylanta Liquid    : Rp 45.000")
+        print("[2] Promag Strip      : Rp 9.000")
+        print("[3] Mylanta Tablet    : Rp 8.000")
+        print("[4] Polysilane Strip  : Rp 6.800")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total3 = jml_obat * 45000
+            print(jml_obat, " Mylanta Liquid  : Rp", total3)
+            jenis3 = ("Mylanta Liquid")
+        elif obat == 2:
+            total3 = jml_obat * 9000
+            print(jml_obat, " Promag Strip : Rp", total3)
+            jenis3 = ("Promag Strip")
+        elif obat == 3:
+            total3 = jml_obat * 8000
+            print(jml_obat, " Mylanta Tablet : Rp", total3)
+            jenis3 = ("Mylanta Tablet")
+        elif obat == 4:
+            total3 = jml_obat * 6800
+            print(jml_obat, " Polysilane Strip : Rp", total3)
+            jenis3 = ("Polysilane Strip")
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+    else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        Obat()
+
+    Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
+    dataObat.append(Obat.copy())
+
+    keys = data0bat[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataObat)
