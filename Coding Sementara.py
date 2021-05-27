@@ -80,3 +80,78 @@ def APD():
             jenis1 = ("Face Shield Anak-anak")
         else:
             print("Maaf perintah yang Anda masukkan salah!")
+
+    elif nomor==3:
+        print("[1] Antis Spray      : Rp 9.500")
+        print("[2] Antis Gel        : Rp 7.000")
+        print("[3] Nuvo Gel         : Rp 7.500")
+        print("[4] Dettol Spray     : Rp 7.500")
+
+        hand = int(input("Pilih yang mana? : "))
+        jmlapd = int(input("Jumlah : "))
+
+        if hand==1:
+            total1=jmlapd*9500
+            print (jmlapd, " Antis Spray : Rp", total1)
+            jenis1=("Antis Spray")
+        elif hand==2:
+            total1 = jmlapd*7000
+            print(jmlapd, " Antis Gel : Rp", total1)
+            jenis1 = ("Antis Gel")
+        elif hand==3:
+            total1 = jmlapd*7500
+            print(jmlapd, " Nuvo Gel : Rp", total1)
+            jenis1 = ("Nuvo Gel")
+        elif hand==4:
+            total1 = jmlapd*7500
+            print(jmlapd, " Dettol Spray : Rp", total1)
+            jenis1 = ("Dettol Spray")
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+    else:
+      print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+      APD()
+
+    APD = {"No": nomor, "Jenis": jenis1, "Jumlah": jmlapd, "Harga": total1}
+    dataAPD.append(APD.copy())
+
+    keys = dataAPD[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataAPD)
+
+total2=0
+jenis2=""
+
+def Vitamin():
+    global total2
+    global jenis2
+    global jml_vit
+    print("\n---------- Daftar Menu Vitamin ----------")
+    print("1. Imboost Effervescent With Vitamin C: Rp 30.000")
+    print("2. Redoxon Double Action Isi 10       : Rp 35.000")
+    print("3. CDR Fortos isi 10                  : Rp 40.000")
+    print("4. Enervon C Tablet Isi 30            : Rp 45.000")
+    nomor=int(input("Pilih yang mana? : "))
+    jml_vit = int(input("Mau beli berapa? : "))
+
+    if nomor==1:
+       total2=jml_vit*30000
+       print (jml_vit," Imboost Effervescent With Vitamin C : Rp.", total2)
+       jenis2=("Imboost Effervescent With Vitamin C")
+    elif nomor==2:
+       total2=jml_vit*35000
+       print (jml_vit, " Redoxon Double Action Isi 10 : Rp.", total2)
+       jenis2=("Redoxon Double Action Isi 10")
+    elif nomor==3:
+       total2=jml_vit*40000
+       print (jml_vit, " CDR Fortos isi 10 : Rp.", total2)
+       jenis2=("CDR Fortos isi 10")
+    elif nomor==4:
+       total2=jml_vit*45000
+       print (jml_vit, " Enervon C Tablet : Rp.", total2)
+       jenis2=("Enervon C Tablet")
+    else:
+      print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+      Vitamin()
