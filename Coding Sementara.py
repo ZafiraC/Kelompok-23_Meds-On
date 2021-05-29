@@ -345,26 +345,13 @@ while ulang :
     if pilihan == 1 :
         APD()
         print("-----------------------------------")
+        input("Tekan 'ENTER' untuk Melanjutkan")
         kondisi = input("Ingin pesan lagi? (Y/T) : ")
         if kondisi == "y":
-            menu()
-            print("-----------------------------------")
-            input("Tekan 'ENTER' untuk Melanjutkan")
-            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
-            if kondisi == "y":
-                ulang = True
-            elif kondisi == "t" or kondisi == "T":
-                print("Terima kasih")
-                ulang = False
-        elif kondisi == "t" :
-            print("-----------------------------------")
-            input("Tekan 'ENTER' untuk Melanjutkan")
-            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
-            if kondisi == "y":
-                ulang = True
-            elif kondisi == "t" or kondisi == "T":
-                print("Terima kasih")
-                ulang = False
+            ulang = True
+        elif kondisi == "t" or kondisi == "T":
+            print("Terima kasih")
+            ulang = False
     elif pilihan == 2 :
         Vitamin()
         print("-----------------------------------")
