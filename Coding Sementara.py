@@ -329,3 +329,59 @@ def Obat():
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(dataObat)
+
+ulang = True
+
+if __name__ == "_main_":
+  cek = cekFile()
+  print('Ada file? ',str(cek))
+
+
+while ulang :
+    print("------------ Program Meds-On  ------------")
+    menu()
+    print("------------------------------------------")
+    pilihan = int(input("Masukkan Pilihan Anda : "))
+    if pilihan == 1 :
+        APD()
+        print("-----------------------------------")
+        kondisi = input("Ingin pesan lagi? (Y/T) : ")
+        if kondisi == "y":
+            menu()
+            print("-----------------------------------")
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                print("Terima kasih")
+                ulang = False
+        elif kondisi == "t" :
+            print("-----------------------------------")
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                print("Terima kasih")
+                ulang = False
+    elif pilihan == 2 :
+        Vitamin()
+        print("-----------------------------------")
+        input("Tekan 'ENTER' untuk Melanjutkan")
+        kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+        if kondisi == "y":
+            ulang = True
+        elif kondisi == "t" or kondisi == "T":
+            print("Terima kasih")
+            ulang = False
+    elif pilihan == 3 :
+        Obat()
+        print("-----------------------------------")
+        input("Tekan 'ENTER' untuk Melanjutkan")
+        kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+        if kondisi == "y":
+            ulang = True
+        elif kondisi == "t" or kondisi == "T":
+            print("Terima kasih")
+            ulang = False
