@@ -460,7 +460,49 @@ def lihatpesanan():
 kecamatan = ""
 ongkir = ""
 def ongkoskirim():
+    global kecamatan
+    global ongkir
 
+    print("----------------------------------------")
+    print("-------------Alamat Pengiriman----------------")
+    print("Daftar Kecamatan \n"
+          "[1] Banjarsari\n"
+          "[2] Jebres\n"
+          "[3] Laweyan\n"
+          "[4] Pasar Kliwon\n"
+          "[5] Serengan\n")
+    no_kecamatan = int(input("Masukkan Kecamatan : "))
+    if no_kecamatan == 1:
+        kecamatan = "Banjarsari"
+        ongkir = "Rp 9.000"
+    elif no_kecamatan == 2:
+        kecamatan = "Jebres"
+        ongkir = "Rp 5.000"
+    elif no_kecamatan == 3:
+        kecamatan = "Laweyan"
+        ongkir = "Rp 10.000"
+    elif no_kecamatan == 4:
+        kecamatan = "Pasar Kliwon"
+        ongkir = "Rp 7.000"
+    elif no_kecamatan == 5:
+        kecamatan = "Serengan"
+        ongkir = "Rp 10.000"
+
+    alamat = input("Masukkan Alamat Lengkap : \n")
+
+
+ulang = True
+
+if __name__ == "main":
+    cek = cekFile()
+    print('Ada file? ', str(cek))
+
+while ulang:
+    print("------------ Program Meds-On  ------------")
+    menu()
+    print("------------------------------------------")
+    pilihan = int(input("Masukkan Pilihan Anda : "))
+    if pilihan == 1:
 
 ulang = True
 
