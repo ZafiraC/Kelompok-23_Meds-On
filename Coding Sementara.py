@@ -371,6 +371,50 @@ def Dokter():
             nama = "drg. Christine Windayani, Sp.KG"
         elif no_dokter == 2:
             nama = "drg. Benny Widianto, Sp.BM"
+    elif dokter == 4:
+        print("[1] dr. Tommy Febrianto, Sp.OG")
+        print("[2] dr. Sandie Farina, Sp.OG")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Tommy Febrianto, Sp.OG"
+        elif no_dokter == 2:
+            nama = "dr. Sandie Farina, Sp.OG"
+
+    elif dokter == 5:
+        print("[1] dr. Andreas Widiansyah, Sp.KK")
+        print("[2] dr. Ratih Pramuningtyas, Sp.KK")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Andreas Widiansyah, Sp.KK"
+        elif no_dokter == 2:
+            nama = "dr. Ratih Pramuningtyas, Sp.KK"
+
+    elif dokter == 6:
+        print("[1] dr. Ahmad Nurdiansyah, Sp.THT-KL")
+        print("[2] dr. Dewi Pratiwi, Sp.THT-KL., M.Kes")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Ahmad Nurdiansyah, Sp.THT-KL"
+        elif no_dokter == 2:
+            nama = "dr. Dewi Pratiwi, Sp.THT-KL., M.Kes"
+
+    else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        Dokter()
+
+waktu = ""
+def Jadwal():
+    global waktu
+    print("Silakan pilih jadwal konsultasi!")
+    tanggal = int(input("Tanggal : "))
+    bulan = int(input("Bulan    : "))
+    print("Pilihan waktu konsultasi\n"
+            "[1] 10.00 - 12.00\n"
+            "[2] 13.00 - 15.00\n"
+            "[3] 19.00 - 21.00\n")
+    jam = int(input("Waktu    :"))
+    if jam == 1:
+        waktu = "10.00 - 12.00"
 
 ulang = True
 
