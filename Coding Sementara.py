@@ -490,7 +490,6 @@ def ongkoskirim():
 
     alamat = input("Masukkan Alamat Lengkap : \n")
 
-
 ulang = True
 
 if __name__ == "main":
@@ -503,19 +502,6 @@ while ulang:
     print("------------------------------------------")
     pilihan = int(input("Masukkan Pilihan Anda : "))
     if pilihan == 1:
-
-ulang = True
-
-if __name__ == "_main_":
-  cek = cekFile()
-  print('Ada file? ',str(cek))
-
-while ulang :
-    print("------------ Program Meds-On  ------------")
-    menu()
-    print("------------------------------------------")
-    pilihan = int(input("Masukkan Pilihan Anda : "))
-    if pilihan == 1 :
         APD()
         print("-----------------------------------")
         input("Tekan 'ENTER' untuk Melanjutkan")
@@ -523,9 +509,10 @@ while ulang :
         if kondisi == "y":
             ulang = True
         elif kondisi == "t" or kondisi == "T":
-            print("Terima kasih")
+            lihatpesanan()
+            ongkoskirim()
             ulang = False
-    elif pilihan == 2 :
+    elif pilihan == 2:
         Vitamin()
         print("-----------------------------------")
         input("Tekan 'ENTER' untuk Melanjutkan")
@@ -533,9 +520,10 @@ while ulang :
         if kondisi == "y":
             ulang = True
         elif kondisi == "t" or kondisi == "T":
-            print("Terima kasih")
+            lihatpesanan()
+            ongkoskirim()
             ulang = False
-    elif pilihan == 3 :
+    elif pilihan == 3:
         Obat()
         print("-----------------------------------")
         input("Tekan 'ENTER' untuk Melanjutkan")
@@ -543,5 +531,19 @@ while ulang :
         if kondisi == "y":
             ulang = True
         elif kondisi == "t" or kondisi == "T":
-            print("Terima kasih")
+            lihatpesanan()
+            ongkoskirim()
+            ulang = False
+    elif pilihan == 4:
+        Dokter()
+        print("-----------------------------------")
+        input("Tekan 'ENTER' untuk Melanjutkan")
+        Jadwal()
+        kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+        if kondisi == "y":
+            lihatpesanan()
+            ongkoskirim()
+            ulang = True
+        elif kondisi == "t" or kondisi == "T":
+            lihatpesanan()
             ulang = False
