@@ -156,14 +156,14 @@ def Vitamin():
       print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
       Vitamin()
 
-      Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah Vitamin": jml_vit, "Harga": total2}
-      dataVitamin.append(Vitamin.copy())
+    Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah Vitamin": jml_vit, "Harga": total2}
+    dataVitamin.append(Vitamin.copy())
 
-      keys = dataVitamin[0].keys()
-      with open('data.csv', 'a', newline='')  as output_file:
-          dict_writer = csv.DictWriter(output_file, keys)
-          dict_writer.writeheader()
-          dict_writer.writerows(dataVitamin)
+    keys = dataVitamin[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataVitamin)
 
 total3 = 0
 jenis3 = ""
@@ -324,7 +324,7 @@ def Obat():
     Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
     dataObat.append(Obat.copy())
 
-    keys = data0bat[0].keys()
+    keys = dataObat[0].keys()
     with open('data.csv', 'a', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
@@ -415,13 +415,58 @@ def Jadwal():
     jam = int(input("Waktu    :"))
     if jam == 1:
         waktu = "10.00 - 12.00"
+    elif jam == 2:
+        waktu = "13.00 - 15.00"
+    elif jam == 3:
+        waktu = "19.00 - 21.00"
+
+    Konsul = {"Nama Dokter": nama, "Tanggal": tanggal, "Bulan": bulan, "Waktu": waktu, "Uang Muka": "Rp 50.000"}
+    dataKonsul.append(Konsul.copy())
+
+    keys = dataKonsul[0].keys()
+    with open('konsultasi.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataKonsul)
+
+
+def lihatpesanan():
+    print("----------------------------------------")
+    print("-------------APD----------------")
+    print("Nomor \tNama Pesanan \tJumlah \tHarga")
+    for i in range(len(dataAPD)):
+        print(str(i + 1), '\t', dataAPD[i]["Jenis"], '\t', dataAPD[i]["Jumlah"], '\t', dataAPD[i]["Harga"])
+
+    print("\n-------------Vitamin----------------")
+    print("Nomor \tNama Pesanan \tJumlah \tHarga")
+    for i in range(len(dataVitamin)):
+        print(str(i + 1), '\t', dataVitamin[i]["Jenis"], '\t', dataVitamin[i]["Jumlah"], '\t', dataVitamin[i]["Harga"])
+
+    print("\n-------------Obat Generik----------------")
+    print("Nomor \tNama Pesanan \tJumlah \tHarga")
+    for i in range(len(dataObat)):
+        print(str(i + 1), '\t', dataObat[i]["Jenis"], '\t', dataObat[i]["Jumlah"], '\t', dataObat[i]["Harga"])
+
+    print("\n-------------Konsultasi Dokter----------------")
+    print("Nomor \tNama Dokter \t\t\tTanggal Bulan \t\tWaktu \t\t\tUang Muka")
+    for i in range(len(dataKonsul)):
+        print(str(i + 1), '\t', dataKonsul[i]["Nama Dokter"], '\t', dataKonsul[i]["Tanggal"], ' \t ',
+              dataKonsul[i]["Bulan"], '\t', dataKonsul[i]["Waktu"], '\t', dataKonsul[i]["Uang Muka"])
+
+    print("---------------------------------")
+    input("Tekan 'ENTER' untuk Melanjutkan")
+
+
+kecamatan = ""
+ongkir = ""
+def ongkoskirim():
+
 
 ulang = True
 
 if __name__ == "_main_":
   cek = cekFile()
   print('Ada file? ',str(cek))
-
 
 while ulang :
     print("------------ Program Meds-On  ------------")
