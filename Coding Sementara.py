@@ -330,6 +330,48 @@ def Obat():
         dict_writer.writeheader()
         dict_writer.writerows(dataObat)
 
+nama=""
+def Dokter():
+    global nama
+    print("\n---------- Booking Konsultasi Dokter ----------")
+    print("1. Dokter Umum")
+    print("2. Dokter Anak")
+    print("3. Dokter Gigi")
+    print("4. Dokter Kandungan")
+    print("5. Dokter Kulit & Kelamin")
+    print("6. Dokter THT")
+    dokter = int(input("Pilih dokter yang bersangkutan: "))
+
+    if dokter == 1:
+        print("[1] dr. Sulistyo Santoso")
+        print("[2] dr. Olivia Dwimaswasti")
+        print("[3] dr. Eka Selvia")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Sulistyo Santoso"
+        elif no_dokter == 2:
+            nama = "dr. Olivia Dwimaswasti"
+        elif no_dokter == 3:
+            nama = "dr. Eka Selvia"
+
+    elif dokter == 2:
+        print("[1] dr. Yohnny Sugiarto, Sp.A")
+        print("[2] dr. Rustam Siregar, Sp.A")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Yohnny Sugiarto, Sp.A"
+        elif no_dokter == 2:
+            nama = "dr. Rustam Siregar, Sp.A"
+
+    elif dokter == 3:
+        print("[1] drg. Christine Windayani, Sp.KG")
+        print("[2] drg. Benny Widianto, Sp.BM")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "drg. Christine Windayani, Sp.KG"
+        elif no_dokter == 2:
+            nama = "drg. Benny Widianto, Sp.BM"
+
 ulang = True
 
 if __name__ == "_main_":
