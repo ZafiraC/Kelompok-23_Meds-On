@@ -156,7 +156,7 @@ def Vitamin():
       print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
       Vitamin()
 
-    Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah Vitamin": jml_vit, "Harga": total2}
+    Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah": jml_vit, "Harga": total2}
     dataVitamin.append(Vitamin.copy())
 
     keys = dataVitamin[0].keys()
