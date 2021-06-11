@@ -151,3 +151,156 @@ def APD():
             dataAPD.append(APD.copy())
             grand_total.append(total4)
         else:
+            print("Maaf perintah yang Anda masukkan salah!")
+        else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        APD()
+
+    keys = dataAPD[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataAPD)
+
+jenis2 = ""
+def Vitamin():
+    global total1
+    global total2
+    global total3
+    global total4
+    global jenis2
+    global jml_vit
+    global grand_total
+    print("Daftar Vitamin".center(50, '-'))
+    print("1. Imboost Effervescent With Vitamin C: Rp 30.000")
+    print("2. Redoxon Double Action Isi 10       : Rp 35.000")
+    print("3. CDR Fortos isi 10                  : Rp 40.000")
+    print("4. Enervon C Tablet Isi 30            : Rp 45.000")
+    nomor = int(input("Pilih yang mana? : "))
+    jml_vit = int(input("Jumlah : "))
+    print("-" * 50)
+
+    if nomor == 1:
+        total1 = jml_vit * 30000
+        print(jml_vit, " Imboost Effervescent With Vitamin C : Rp", total1)
+        jenis2 = ("Imboost Effervescent With Vitamin C")
+        Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah": jml_vit, "Harga": total1}
+        dataVitamin.append(Vitamin.copy())
+        grand_total.append(total1)
+    elif nomor == 2:
+        total2 = jml_vit * 35000
+        print(jml_vit, " Redoxon Double Action Isi 10 : Rp", total2)
+        jenis2 = ("Redoxon Double Action Isi 10")
+        Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah": jml_vit, "Harga": total2}
+        dataVitamin.append(Vitamin.copy())
+        grand_total.append(total2)
+    elif nomor == 3:
+        total3 = jml_vit * 40000
+        print(jml_vit, " CDR Fortos isi 10 : Rp", total3)
+        jenis2 = ("CDR Fortos isi 10")
+        Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah": jml_vit, "Harga": total3}
+        dataVitamin.append(Vitamin.copy())
+        grand_total.append(total3)
+    elif nomor == 4:
+        total4 = jml_vit * 45000
+        print(jml_vit, " Enervon C Tablet : Rp", total4)
+        jenis2 = ("Enervon C Tablet")
+        Vitamin = {"No": nomor, "Jenis": jenis2, "Jumlah": jml_vit, "Harga": total4}
+        dataVitamin.append(Vitamin.copy())
+        grand_total.append(total4)
+    else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        Vitamin()
+
+    keys = dataVitamin[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataVitamin)
+
+jenis3 = ""
+def Obat():
+    global total1
+    global total2
+    global total3
+    global total4
+    global jml_obat
+    global jenis3
+    global grand_total
+    print("Daftar Obat Generik".center(50, '-'))
+    print("1. Obat Penurun Panas")
+    print("2. Obat Batuk")
+    print("3. Obat Flu")
+    print("4. Obat Pusing")
+    nomor = int(input("Mau yang mana ? : "))
+    print("-" * 50)
+
+    if nomor == 1:
+        print("[1] Paracetamol Tablet 500mg Isi 10       : Rp 3000")
+        print("[2] Sanmol Paracetamol Tablet 500mg Isi 4 : Rp 1500")
+        print("[3] Ibuprofen Tablet 400 mg Isi 10        : Rp 4000")
+        print("[4] Termorex Paracetamol Sirup Anak       : Rp 16000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+        if obat == 1:
+            total1 = jml_obat * 3000
+            print(jml_obat, "Paracetamol Tablet 500mg Isi 10 : Rp", total1)
+            jenis3 = ("Paracetamol Tablet 500mg Isi 10")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total1}
+            dataObat.append(Obat.copy())
+            grand_total.append(total1)
+        elif obat == 2:
+            total2 = jml_obat * 1500
+            print(jml_obat, "Sanmol Paracetamol Tablet 500mg Isi 4 : Rp", total2)
+            jenis3 = ("Sanmol Paracetamol Tablet 500mg Isi 4")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total2}
+            dataObat.append(Obat.copy())
+            grand_total.append(total2)
+        elif obat == 3:
+            total3 = jml_obat * 4000
+            print(jml_obat, "Ibuprofen Tablet 400 mg Isi 10 : Rp", total3)
+            jenis3 = ("Ibuprofen Tablet 400 mg Isi 10")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
+            dataObat.append(Obat.copy())
+            grand_total.append(total3)
+        elif obat == 4:
+            total4 = jml_obat * 16000
+            print(jml_obat, "Termorex Paracetamol Sirup Anak : Rp", total4)
+            jenis3 = ("Termorex Paracetamol Sirup Anak")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total4}
+            dataObat.append(Obat.copy())
+            grand_total.append(total4)
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+
+    elif nomor == 2:
+        print("[1] Siladex ME 60 ml (batuk berdahak)                  : Rp 16000")
+        print("[2] Vicks Formula 44 (batuk kering dan berdahak)       : Rp 22000")
+        print("[3] Benadryl Original (batuk kering dengan rasa gatal) : Rp 25000")
+        print("[4] Woods Antitussive 100 ml (batuk tidak berdahak)    : Rp 33000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+        if obat == 1:
+            total1 = jml_obat * 16000
+            print(jml_obat, "Siladex ME 60 ml : Rp", total1)
+            jenis3 = ("Siladex ME 60 ml")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total1}
+            dataObat.append(Obat.copy())
+            grand_total.append(total1)
+        elif obat == 2:
+            total2 = jml_obat * 22000
+            print(jml_obat, "Vicks Formula 44 : Rp", total2)
+            jenis3 = ("Vicks Formula 44")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total2}
+            dataObat.append(Obat.copy())
+            grand_total.append(total2)
+        elif obat == 3:
+            total3 = jml_obat * 25000
+            print(jml_obat, "Benadryl Original : Rp", total3)
+            jenis3 = ("Benadryl Original")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
+            dataObat.append(Obat.copy())
+            grand_total.append(total3)
+        elif obat == 4:
