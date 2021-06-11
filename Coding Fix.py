@@ -304,3 +304,156 @@ def Obat():
             dataObat.append(Obat.copy())
             grand_total.append(total3)
         elif obat == 4:
+            total4 = jml_obat * 33000
+            print(jml_obat, "Woods Antitussive 100 ml : Rp", total4)
+            jenis3 = ("Woods Antitussive 100 ml")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total4}
+            dataObat.append(Obat.copy())
+            grand_total.append(total4)
+
+    elif nomor == 3:
+        print("[1] Inza          : Rp 2000")
+        print("[2] Mixagrip Flu  : Rp 3000")
+        print("[3] Neozep Forte  : Rp 3000")
+        print("[4] Decolgen Flu  : Rp 3000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total1 = jml_obat * 2000
+            print(jml_obat, " Inza : Rp", total1)
+            jenis3 = ("Inza")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total1}
+            dataObat.append(Obat.copy())
+            grand_total.append(total1)
+        elif obat == 2:
+            total2 = jml_obat * 3000
+            print(jml_obat, " Mixagrip Flu : Rp", total2)
+            jenis3 = ("Mixagrip Flu")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total2}
+            dataObat.append(Obat.copy())
+            grand_total.append(total2)
+        elif obat == 3:
+            total3 = jml_obat * 3000
+            print(jml_obat, " Neozep Forte : Rp", total3)
+            jenis3 = ("Neozep Forte")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
+            dataObat.append(Obat.copy())
+            grand_total.append(total3)
+        elif obat == 4:
+            total4 = jml_obat * 3000
+            print(jml_obat, " Decolgen Flu : Rp", total4)
+            jenis3 = ("Decolgen Flu")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total4}
+            dataObat.append(Obat.copy())
+            grand_total.append(total4)
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+
+    elif nomor == 4:
+        print("[1] Bodrex Migra    : Rp 2500")
+        print("[2] Konimex Paramex : Rp 3000")
+        print("[3] Panadol Regular : Rp 9000")
+        print("[4] Panadol Extra   : Rp 9000")
+
+        obat = int(input("Pilih yang mana? : "))
+        jml_obat = int(input("Jumlah : "))
+
+        if obat == 1:
+            total1 = jml_obat * 2500
+            print(jml_obat, " Bodrex Migra  : Rp", total1)
+            jenis3 = ("Bodrex Migra ")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total1}
+            dataObat.append(Obat.copy())
+            grand_total.append(total1)
+        elif obat == 2:
+            total2 = jml_obat * 3000
+            print(jml_obat, " Konimex Paramex : Rp", total2)
+            jenis3 = ("Konimex Paramex")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total2}
+            dataObat.append(Obat.copy())
+            grand_total.append(total2)
+        elif obat == 3:
+            total3 = jml_obat * 9000
+            print(jml_obat, " Panadol Regular : Rp", total3)
+            jenis3 = ("Panadol Regular")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total3}
+            dataObat.append(Obat.copy())
+            grand_total.append(total3)
+        elif obat == 4:
+            total4 = jml_obat * 9000
+            print(jml_obat, " Panadol Extra : Rp", total4)
+            jenis3 = ("Panadol Extra")
+            Obat = {"No": nomor, "Jenis": jenis3, "Jumlah": jml_obat, "Harga": total4}
+            dataObat.append(Obat.copy())
+            grand_total.append(total4)
+        else:
+            print("Maaf perintah yang Anda masukkan salah!")
+    else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        Obat()
+
+    keys = dataObat[0].keys()
+    with open('data.csv', 'a', newline='')  as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dataObat)
+
+nama=""
+def Dokter():
+    global nama
+    print("Booking Konsultasi Dokter".center(50,'-'))
+    print("1. Dokter Umum")
+    print("2. Dokter Anak")
+    print("3. Dokter Gigi")
+    print("4. Dokter Kandungan")
+    print("5. Dokter Kulit & Kelamin")
+    print("6. Dokter THT")
+    dokter = int(input("Pilih dokter yang bersangkutan: "))
+    print("-" * 50)
+
+    if dokter == 1:
+        print("[1] dr. Sulistyo Santoso")
+        print("[2] dr. Olivia Dwimaswasti")
+        print("[3] dr. Eka Selvia")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Sulistyo Santoso"
+        elif no_dokter == 2:
+            nama = "dr. Olivia Dwimaswasti"
+        elif no_dokter == 3:
+            nama = "dr. Eka Selvia"
+
+    elif dokter == 2:
+        print("[1] dr. Yohnny Sugiarto, Sp.A")
+        print("[2] dr. Rustam Siregar, Sp.A")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Yohnny Sugiarto, Sp.A"
+        elif no_dokter == 2:
+            nama = "dr. Rustam Siregar, Sp.A"
+
+    elif dokter == 3:
+        print("[1] drg. Christine Windayani, Sp.KG")
+        print("[2] drg. Benny Widianto, Sp.BM")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "drg. Christine Windayani, Sp.KG"
+        elif no_dokter == 2:
+            nama = "drg. Benny Widianto, Sp.BM"
+
+    elif dokter == 4:
+        print("[1] dr. Tommy Febrianto, Sp.OG")
+        print("[2] dr. Sandie Farina, Sp.OG")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Tommy Febrianto, Sp.OG"
+        elif no_dokter == 2:
+            nama = "dr. Sandie Farina, Sp.OG"
+
+    elif dokter == 5:
+        print("[1] dr. Andreas Widiansyah, Sp.KK")
+        print("[2] dr. Ratih Pramuningtyas, Sp.KK")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
