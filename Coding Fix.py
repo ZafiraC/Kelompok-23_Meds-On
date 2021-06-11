@@ -610,3 +610,156 @@ def nota_cod():
     print (" Total Tagihan Anda   : Rp", totalsemua)
     print(" Mohon siapkan uang pas!")
     print ("Transaksi Selesai".center(80,'-'))
+    print ("TERIMA KASIH".center(80,'-'))
+
+def cekFile():
+    cekAda = path.exists('data.csv')
+    return cekAda
+
+kecamatan = ""
+alamat = []
+ongkir = ""
+ongkos = 0
+def ongkoskirim():
+    global kecamatan
+    global ongkir
+    global ongkos
+
+    print("-"*50)
+    print("Alamat Pengiriman".center(50,'-'))
+    print("Daftar Kecamatan \n"
+          "[1] Banjarsari\n"
+          "[2] Jebres\n"
+          "[3] Laweyan\n"
+          "[4] Pasar Kliwon\n"
+          "[5] Serengan\n")
+    no_kecamatan = int(input("Masukkan Kecamatan : "))
+    if no_kecamatan == 1:
+        kecamatan = "Banjarsari"
+        ongkir = "Rp 9.000"
+        ongkos = 9000
+    elif no_kecamatan == 2:
+        kecamatan = "Jebres"
+        ongkir = "Rp 5.000"
+        ongkos = 5000
+    elif no_kecamatan == 3:
+        kecamatan = "Laweyan"
+        ongkir = "Rp 10.000"
+        ongkos = 10000
+    elif no_kecamatan == 4:
+        kecamatan = "Pasar Kliwon"
+        ongkir = "Rp 7.000"
+        ongkos = 7000
+    elif no_kecamatan == 5:
+        kecamatan = "Serengan"
+        ongkir = "Rp 10.000"
+        ongkos = 10000
+
+    address = input("Masukkan Alamat Lengkap : \n")
+    alamat.append(address)
+    print("Ongkos kirim :", ongkir)
+
+if __name__ == "__main__":
+  cek = cekFile()
+
+def utama():
+    ulang = True
+    while ulang:
+        print("PROGRAM MEDS-ON".center(50,'-'))
+        print("your wellness, our priority".center(50,' '))
+        menu()
+        print("-"*50)
+        pilihan = int(input("Masukkan Pilihan Anda : "))
+        if pilihan == 1:
+            APD()
+            print("-"*50)
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            kondisi = input("Ingin pesan lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                pembayaran()
+                ulang = False
+        elif pilihan == 2:
+            Vitamin()
+            print("-"*50)
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                pembayaran()
+                ulang = False
+        elif pilihan == 3:
+            Obat()
+            print("-"*50)
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                pembayaran()
+                ulang = False
+        elif pilihan == 4:
+            Dokter()
+            print("-"*50)
+            input("Tekan 'ENTER' untuk Melanjutkan")
+            Jadwal()
+            kondisi = input("Ingin Pesan Lagi? (Y/T) : ")
+            if kondisi == "y":
+                ulang = True
+            elif kondisi == "t" or kondisi == "T":
+                pembayaran()
+                ulang = False
+
+port1 = 'PORTAL REGISTRASI'
+port2 = 'PORTAL LOGIN'
+def registrasi():
+    print(port1.center(50, '='))
+    with open("username.csv", "a") as x:
+        writer = csv.writer(x, delimiter=",")
+        user = input('Username 		: ')
+        passw = input('Password 		: ')
+        ulang_passw = input('Ulangi password : ')
+        if passw == ulang_passw:
+            writer.writerow([user, passw])
+            print('Silakan login dengan username dan password yang dibuat!\n')
+        else:
+            print("Password tidak sama! Silakan registrasi ulang!\n")
+            registrasi()
+
+def login():
+    print(port2.center(50, '='))
+    user = input("Username : ")
+    passw = input("Password : ")
+    with open("username.csv", "r") as x:
+        reader = csv.reader(x, delimiter=",")
+        for row in reader:
+            if row == [user, passw]:
+                print("Login Sukses!\n")
+                utama()
+                return False
+    print("Username atau Password salah. Silakan coba lagi!\n")
+    welcome()
+    return False
+
+def welcome():
+    print('MENU UTAMA'.center(50, '-'))
+    print('Silakan registrasi atau login untuk akses')
+    print('[1] Registrasi')
+    print('[2] Login')
+    menu = int(input('Masukkan pilihan Anda : '))
+    if menu == 1:
+        print('\n')
+        registrasi()
+        login()
+    elif menu == 2:
+        print('\n')
+        login()
+    else:
+        print('Menu yang Anda masukkan salah!')
+    return False
+
+awal = True
+if awal == True:
+    welcome()
