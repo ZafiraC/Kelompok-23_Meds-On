@@ -152,7 +152,7 @@ def APD():
             grand_total.append(total4)
         else:
             print("Maaf perintah yang Anda masukkan salah!")
-        else:
+    else:
         print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
         APD()
 
