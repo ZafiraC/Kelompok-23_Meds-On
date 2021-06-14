@@ -1,0 +1,2 @@
+1. kalau mau cek total sudah benar atau belum sebaiknya ditampilkan dulu total belanjaan dan total ongkirnya biar user bisa cek manual
+2. berkaitan dengan poin 1, sebenarnya kalau program kalian sudah benar kemungkinan salah mentotal itu kecil.
