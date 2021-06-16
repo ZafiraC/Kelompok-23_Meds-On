@@ -463,3 +463,162 @@ def Dokter():
 
     elif dokter == 6:
         print("[1] dr. Ahmad Nurdiansyah, Sp.THT-KL")
+        print("[2] dr. Dewi Pratiwi, Sp.THT-KL., M.Kes")
+        no_dokter = int(input("Nama dokter: "))
+        if no_dokter == 1:
+            nama = "dr. Ahmad Nurdiansyah, Sp.THT-KL"
+        elif no_dokter == 2:
+            nama = "dr. Dewi Pratiwi, Sp.THT-KL., M.Kes"
+
+    else:
+        print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
+        Dokter()
+
+    uangmuka = 0
+    waktu = ""
+
+    def Jadwal():
+        global waktu
+        global uangmuka
+
+        print("Silakan pilih jadwal konsultasi!")
+        tanggal = int(input("Tanggal : "))
+        bulan = int(input("Bulan   : "))
+        print("Pilihan waktu konsultasi\n"
+              "[1] 10.00 - 12.00\n"
+              "[2] 13.00 - 15.00\n"
+              "[3] 19.00 - 21.00\n")
+        jam = int(input("Waktu   : "))
+        if jam == 1:
+            waktu = "10.00 - 12.00"
+        elif jam == 2:
+            waktu = "13.00 - 15.00"
+        elif jam == 3:
+            waktu = "19.00 - 21.00"
+        uangmuka = 50000
+
+        Konsul = {"Nama Dokter": nama, "Tanggal": tanggal, "Bulan": bulan, "Waktu": waktu, "Uang Muka": "Rp 50.000"}
+        dataKonsul.append(Konsul.copy())
+
+        keys = dataKonsul[0].keys()
+        with open('konsultasi.csv', 'a', newline='')  as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(dataKonsul)
+
+    def lihatpesanan():
+        print("Pembelian".center(80, '='))
+        print("Jumlah \tNama Pesanan \tHarga")
+        for i in range(len(dataAPD)):
+            print(" APD ".center(80, '*'))
+            print(dataAPD[i]["Jumlah"], '\t', dataAPD[i]["Jenis"], '\n', '\t' * 6, 'Rp', dataAPD[i]["Harga"])
+        for i in range(len(dataVitamin)):
+            print(" Vitamin ".center(80, '*'))
+            print(dataVitamin[i]["Jumlah"], '\t', dataVitamin[i]["Jenis"], '\n', '\t' * 6, 'Rp',
+                  dataVitamin[i]["Harga"])
+        for i in range(len(dataObat)):
+            print(" Obat Generik ".center(80, '*'))
+            print(dataObat[i]["Jumlah"], '\t', dataObat[i]["Jenis"], '\n', '\t' * 6, 'Rp', dataObat[i]["Harga"])
+
+        print("Konsultasi Dokter".center(80, '='))
+        print("Nomor \tNama Dokter \t\t\tTanggal Bulan \t\tWaktu \t\t\tUang Muka")
+        for i in range(len(dataKonsul)):
+            print(str(i + 1), '\t', dataKonsul[i]["Nama Dokter"], '\t', dataKonsul[i]["Tanggal"], ' \t ',
+                  dataKonsul[i]["Bulan"], '\t', dataKonsul[i]["Waktu"], '\t', dataKonsul[i]["Uang Muka"])
+
+        print("-" * 80)
+
+    totalsemua = 0
+
+    def pembayaran():
+        print('-' * 50)
+        if jmlapd > 0 or jml_obat > 0 or jml_vit > 0:
+            ongkoskirim()
+            pembayaran_semua()
+        else:
+            pembayaran_konsul()
+
+    def pembayaran_semua():
+        global alamat
+        global totalsemua
+        totalsemua = sum(grand_total) + ongkos + uangmuka
+        print("Daftar Pesanan".center(50, '='))
+        for i in range(len(dataAPD)):
+            print(dataAPD[i]["Jumlah"], '\t', dataAPD[i]["Jenis"], '\n', '\t' * 6, '  Rp', dataAPD[i]["Harga"])
+        for i in range(len(dataVitamin)):
+            print(dataVitamin[i]["Jumlah"], '\t', dataVitamin[i]["Jenis"], '\n', '\t' * 6, '  Rp',
+                  dataVitamin[i]["Harga"])
+        for i in range(len(dataObat)):
+            print(dataObat[i]["Jumlah"], '\t', dataObat[i]["Jenis"], '\n', '\t' * 6, '  Rp', dataObat[i]["Harga"])
+        for i in range(len(dataKonsul)):
+            print(dataKonsul[i]["Nama Dokter"], '\t', dataKonsul[i]["Tanggal"], ' \t ',
+                  dataKonsul[i]["Bulan"], '\t', dataKonsul[i]["Waktu"], '\t', dataKonsul[i]["Uang Muka"])
+        print("\nOngkos Kirim             : Rp", ongkos)
+        print("Total yang harus Dibayar : Rp", totalsemua)
+        print("Alamat pengiriman        :", alamat[0])
+        print('-' * 50)
+        benar = input("Apakah total sudah benar? (Y/T) : ")
+        print('-' * 50)
+        if benar == 'y' or benar == 'Y':
+            print("Pilih metode pembayaran!\n"
+                  "[1] Transfer\n"
+                  "[2] COD")
+            metode = int(input("Masukkan pilihan Anda : "))
+            if metode == 1 and totalsemua >= 10000:
+                nota_trf()
+            elif metode == 1 and totalsemua < 10000:
+                print("Maaf, minimal transaksi tidak mencukupi!")
+                beli = input("Apakah ingin menambah pembelian? (Y/T) : ")
+                if beli == 'y':
+                    utama()
+                elif beli == 't':
+                    print("Mohon ganti metode pembayaran!")
+                    pembayaran()
+            elif metode == 2:
+                nota_cod()
+        else:
+            welcome()
+            return False
+
+    def pembayaran_konsul():
+        global totalsemua
+        totalsemua = uangmuka
+        print('-' * 50)
+        print("Total yang harus Dibayar : Rp", totalsemua)
+        print('-' * 50)
+        print("Pilih metode pembayaran!\n"
+              "[1] Transfer\n"
+              "[2] COD")
+        metode = int(input("Masukkan pilihan Anda : "))
+        if metode == 1 and totalsemua >= 10000:
+            nota_trf()
+        elif metode == 1 and totalsemua < 10000:
+            print("Maaf, minimal transaksi tidak mencukupi!")
+            beli = input("Apakah ingin menambah pembelian? (Y/T) : ")
+            if beli == 'y' or beli == 'Y':
+                utama()
+            elif beli == 't' or beli == 'T':
+                print("Mohon ganti metode pembayaran!")
+                pembayaran()
+        elif metode == 2:
+            nota_cod()
+
+    def nota_trf():
+        global totalsemua
+        print("\n")
+        print("-" * 80)
+        print("NOTA PEMBAYARAN".center(80, '-'))
+        lihatpesanan()
+        print(" Total Tagihan Anda   : Rp", totalsemua)
+        print(" Silakan transfer ke rekening berikut!\n"
+              " BCA : 015883291\n"
+              " a.n. Meds-On")
+        print("Transaksi Selesai".center(80, '-'))
+        print("TERIMA KASIH".center(80, '-'))
+
+    def nota_cod():
+        global totalsemua
+        print("\n")
+        print("-" * 80)
+        print("NOTA PEMBAYARAN".center(80, '-'))
+        lihatpesanan()
