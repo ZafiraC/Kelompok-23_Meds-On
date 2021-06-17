@@ -1,5 +1,4 @@
 import csv
-import os.path
 from os import path
 
 total1 = 0
