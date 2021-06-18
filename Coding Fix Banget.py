@@ -1,6 +1,7 @@
 import csv
 from os import path
 
+#Default Awal
 total1 = 0
 total2 = 0
 total3 = 0
@@ -18,6 +19,7 @@ dataKonsul = []
 
 grand_total = []
 
+#Menampilkan Menu Transaksi Utama
 def menu():
     print("Menu Utama".center(50,'-'))
     print("[1] APD")
@@ -25,6 +27,7 @@ def menu():
     print("[3] Obat Generik")
     print("[4] Konsultasi Dokter")
 
+#Melakukan Transaksi APD
 def APD():
     global total1
     global total2
@@ -33,14 +36,14 @@ def APD():
     global jmlapd
     global jenis1
     global grand_total
-    print ("Daftar APD".center(50,'-'))
+    print("Daftar APD".center(50,'-'))
     print("1. Masker")
     print("2. Face Shield")
     print("3. Hand Sanitizer")
     nomor=int(input("Mau yang mana ? : "))
     print("-" * 50)
 
-    if nomor==1:
+    if nomor==1:                    #MASKER
         print("[1] Sensi N95        : Rp 150.000")
         print("[2] Sensi Duckbill   : Rp 140.000")
         print("[3] Sensi Headloop   : Rp 137.500")
@@ -80,7 +83,7 @@ def APD():
         else:
             print("Maaf perintah yang Anda masukkan salah!")
 
-    elif nomor==2:
+    elif nomor==2:                  #FACE SHIELD
         print("[1] Premium      : Rp 15.000")
         print("[2] Akrilik      : Rp 20.000")
         print("[3] Anak         : Rp 12.000")
@@ -112,7 +115,7 @@ def APD():
         else:
             print("Maaf perintah yang Anda masukkan salah!")
 
-    elif nomor==3:
+    elif nomor==3:                  #HAND SANITIZER
         print("[1] Antis Spray      : Rp 9.500")
         print("[2] Antis Gel        : Rp 7.000")
         print("[3] Nuvo Gel         : Rp 7.500")
@@ -155,12 +158,14 @@ def APD():
         print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
         APD()
 
+    #Mencatat Transaksi di CSV 'data'
     keys = dataAPD[0].keys()
     with open('data.csv', 'a', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(dataAPD)
 
+#Melakukan Transaksi Vitamin
 jenis2 = ""
 def Vitamin():
     global total1
@@ -211,12 +216,14 @@ def Vitamin():
         print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
         Vitamin()
 
+    #Mencatat Transaksi di CSV 'data'
     keys = dataVitamin[0].keys()
     with open('data.csv', 'a', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(dataVitamin)
 
+#Melakukan Transaksi Obat Generik
 jenis3 = ""
 def Obat():
     global total1
@@ -234,7 +241,7 @@ def Obat():
     nomor = int(input("Mau yang mana ? : "))
     print("-" * 50)
 
-    if nomor == 1:
+    if nomor == 1:                  #OBAT PENURUN PANAS
         print("[1] Paracetamol Tablet 500mg Isi 10       : Rp 3000")
         print("[2] Sanmol Paracetamol Tablet 500mg Isi 4 : Rp 1500")
         print("[3] Ibuprofen Tablet 400 mg Isi 10        : Rp 4000")
@@ -273,7 +280,7 @@ def Obat():
         else:
             print("Maaf perintah yang Anda masukkan salah!")
 
-    elif nomor == 2:
+    elif nomor == 2:                #OBAT BATUK
         print("[1] Siladex ME 60 ml (batuk berdahak)                  : Rp 16000")
         print("[2] Vicks Formula 44 (batuk kering dan berdahak)       : Rp 22000")
         print("[3] Benadryl Original (batuk kering dengan rasa gatal) : Rp 25000")
@@ -310,7 +317,7 @@ def Obat():
             dataObat.append(Obat.copy())
             grand_total.append(total4)
 
-    elif nomor == 3:
+    elif nomor == 3:                #OBAT FLU
         print("[1] Inza          : Rp 2000")
         print("[2] Mixagrip Flu  : Rp 3000")
         print("[3] Neozep Forte  : Rp 3000")
@@ -350,7 +357,7 @@ def Obat():
         else:
             print("Maaf perintah yang Anda masukkan salah!")
 
-    elif nomor == 4:
+    elif nomor == 4:                #OBAT PUSING
         print("[1] Bodrex Migra    : Rp 2500")
         print("[2] Konimex Paramex : Rp 3000")
         print("[3] Panadol Regular : Rp 9000")
@@ -393,12 +400,14 @@ def Obat():
         print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
         Obat()
 
+    #Mencatat Transaksi di CSV 'data'
     keys = dataObat[0].keys()
     with open('data.csv', 'a', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(dataObat)
 
+#Melakukan Transaksi Booking Konsultasi Dokter
 nama=""
 def Dokter():
     global nama
@@ -412,7 +421,7 @@ def Dokter():
     dokter = int(input("Pilih dokter yang bersangkutan: "))
     print("-" * 50)
 
-    if dokter == 1:
+    if dokter == 1:                 #DOKTER UMUM
         print("[1] dr. Sulistyo Santoso")
         print("[2] dr. Olivia Dwimaswasti")
         print("[3] dr. Eka Selvia")
@@ -424,7 +433,7 @@ def Dokter():
         elif no_dokter == 3:
             nama = "dr. Eka Selvia"
 
-    elif dokter == 2:
+    elif dokter == 2:               #DOKTER ANAK
         print("[1] dr. Yohnny Sugiarto, Sp.A")
         print("[2] dr. Rustam Siregar, Sp.A")
         no_dokter = int(input("Nama dokter: "))
@@ -433,7 +442,7 @@ def Dokter():
         elif no_dokter == 2:
             nama = "dr. Rustam Siregar, Sp.A"
 
-    elif dokter == 3:
+    elif dokter == 3:               #DOKTER GIGI
         print("[1] drg. Christine Windayani, Sp.KG")
         print("[2] drg. Benny Widianto, Sp.BM")
         no_dokter = int(input("Nama dokter: "))
@@ -442,7 +451,7 @@ def Dokter():
         elif no_dokter == 2:
             nama = "drg. Benny Widianto, Sp.BM"
 
-    elif dokter == 4:
+    elif dokter == 4:               #DOKTER KANDUNGAN
         print("[1] dr. Tommy Febrianto, Sp.OG")
         print("[2] dr. Sandie Farina, Sp.OG")
         no_dokter = int(input("Nama dokter: "))
@@ -451,7 +460,7 @@ def Dokter():
         elif no_dokter == 2:
             nama = "dr. Sandie Farina, Sp.OG"
 
-    elif dokter == 5:
+    elif dokter == 5:               #DOKTER KULIT & KELAMIN
         print("[1] dr. Andreas Widiansyah, Sp.KK")
         print("[2] dr. Ratih Pramuningtyas, Sp.KK")
         no_dokter = int(input("Nama dokter: "))
@@ -460,7 +469,7 @@ def Dokter():
         elif no_dokter == 2:
             nama = "dr. Ratih Pramuningtyas, Sp.KK"
 
-    elif dokter == 6:
+    elif dokter == 6:               #DOKTER THT
         print("[1] dr. Ahmad Nurdiansyah, Sp.THT-KL")
         print("[2] dr. Dewi Pratiwi, Sp.THT-KL., M.Kes")
         no_dokter = int(input("Nama dokter: "))
@@ -473,6 +482,7 @@ def Dokter():
         print("Maaf permintaanmu saat ini tidak tersedia, silahkan pilih kembali !")
         Dokter()
 
+#Memasukkan Jadwal Booking
 uangmuka = 0
 waktu=""
 def Jadwal():
@@ -493,17 +503,19 @@ def Jadwal():
         waktu = "13.00 - 15.00"
     elif jam == 3:
         waktu = "19.00 - 21.00"
-    uangmuka = 50000
+    uangmuka = 50000            #Uang Muka Flat
 
     Konsul = {"Nama Dokter": nama, "Tanggal": tanggal, "Bulan": bulan, "Waktu": waktu, "Uang Muka": "Rp 50.000"}
     dataKonsul.append(Konsul.copy())
 
+    #Mencatat Transaksi di CSV 'konsultasi'
     keys = dataKonsul[0].keys()
     with open('konsultasi.csv', 'a', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(dataKonsul)
 
+#Menampilkan Keseluruhan Pesanan
 def lihatpesanan():
     print("Pembelian".center(80,'='))
     print("Jumlah \tNama Pesanan \tHarga")
@@ -525,15 +537,17 @@ def lihatpesanan():
 
     print("-"*80)
 
+#Plotting Tahapan Transaksi
 totalsemua=0
 def pembayaran():
     print('-'*50)
-    if jmlapd > 0 or jml_obat > 0 or jml_vit > 0:
+    if jmlapd > 0 or jml_obat > 0 or jml_vit > 0:       #Jika melakukan Pembelian dan/atau Booking Konsultasi
         ongkoskirim()
         pembayaran_semua()
-    else :
+    else :                                              #Jika melakukan Booking Konsultasi saja
         pembayaran_konsul()
 
+#Total dan Pembayaran untuk Pembelian dan/atau Booking Transaksi
 def pembayaran_semua():
     global alamat
     global totalsemua
@@ -559,7 +573,7 @@ def pembayaran_semua():
               "[1] Transfer\n"
               "[2] COD")
         metode = int(input("Masukkan pilihan Anda : "))
-        if metode == 1 and totalsemua >= 10000:
+        if metode == 1 and totalsemua >= 10000:         #Minimal transaksi Rp10.000,- untuk metode transfer
             nota_trf()
         elif metode == 1 and totalsemua < 10000:
             print("Maaf, minimal transaksi tidak mencukupi!")
@@ -575,6 +589,7 @@ def pembayaran_semua():
         welcome()
         return False
 
+#Total dan Pembayaran untuk Booking Konsultasi saja
 def pembayaran_konsul():
     global totalsemua
     totalsemua = uangmuka
@@ -585,7 +600,7 @@ def pembayaran_konsul():
           "[1] Transfer\n"
           "[2] COD")
     metode = int(input("Masukkan pilihan Anda : "))
-    if metode == 1 and totalsemua >= 10000:
+    if metode == 1 and totalsemua >= 10000:             #Minimal transaksi Rp10.000,- untuk metode transfer
         nota_trf()
     elif metode == 1 and totalsemua < 10000:
         print("Maaf, minimal transaksi tidak mencukupi!")
@@ -598,6 +613,7 @@ def pembayaran_konsul():
     elif metode == 2:
         nota_cod()
 
+#Nota Metode Transfer
 def nota_trf():
     global totalsemua
     print("\n")
@@ -611,6 +627,7 @@ def nota_trf():
     print ("Transaksi Selesai".center(80,'-'))
     print ("TERIMA KASIH".center(80,'-'))
 
+#Nota Metode COD
 def nota_cod():
     global totalsemua
     print("\n")
@@ -622,10 +639,12 @@ def nota_cod():
     print("Transaksi Selesai".center(80, '-'))
     print("TERIMA KASIH".center(80, '-'))
 
+#Pengecekan Data Internal
 def cekFile():
     cekAda = path.exists('data.csv')
     return cekAda
 
+#Memasukkan Alamat Pengiriman & Menentukan Ongkir
 kecamatan = ""
 alamat = []
 ongkir = ""
@@ -672,6 +691,7 @@ def ongkoskirim():
 if __name__ == "__main__":
   cek = cekFile()
 
+#Alur Program Keseluruhan
 def utama():
     ulang = True
     while ulang:
@@ -722,6 +742,7 @@ def utama():
                 pembayaran()
                 ulang = False
 
+#Registrasi untuk Pengguna Baru
 port1 = 'PORTAL REGISTRASI'
 port2 = 'PORTAL LOGIN'
 def registrasi():
@@ -738,6 +759,7 @@ def registrasi():
             print("Password tidak sama! Silakan registrasi ulang!\n")
             registrasi()
 
+#Login untuk Pengguna Lama
 def login():
     print(port2.center(50, '='))
     user = input("Username : ")
@@ -753,6 +775,7 @@ def login():
     welcome()
     return False
 
+#Menu Awal Program
 def welcome():
     print('MENU UTAMA'.center(50, '-'))
     print('Silakan registrasi atau login untuk akses')
@@ -770,6 +793,7 @@ def welcome():
         print('Menu yang Anda masukkan salah!')
     return False
 
+#Mengaktifkan Program
 awal = True
 if awal == True:
     welcome()
